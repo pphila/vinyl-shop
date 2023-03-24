@@ -1,13 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Vinyl() {
+export default function Vinyl(props) {
   return (
     <>
-      <h3>{props.band}</h3>
-      <h4><em>{props.album}</em></h4>
-      <h4></h4>
-      <h4>{props.quantity}</h4>
+      <div onClick={() => props.whenVinylClicked(props.id)}>
+        <h3>{props.band}</h3>
+        <h4><em>{props.album}</em></h4>
+        <h4>{props.description}</h4>
+        <h4>{props.quantity}</h4> {/*quantity amount will determine low stock or out of stock warning using conditionals?*/}
+      </div>
     </>
   );
 }
+
+Vinyl.propTypes = {
+  band: PropTypes.string,
+  album: PropTypes.string,
+  description: PropTypes.string,
+  quantity: PropTypes.string,
+  id: PropTypes.string,
+  whenVinylClicked: PropTypes.func
+};
