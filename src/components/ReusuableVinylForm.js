@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function ReusubaleVinylForm(props) {
   return (
     <>
-      <form onSubmit={formSubmissionHandler}>
+      <form onSubmit={props.formSubmissionHandler}>
         <input
           type="text"
           name="band"
