@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function VinylList(props) {
   return (
     <>
-      <h1>Vinyl Inventory</h1>
+      <h2>Vinyl Inventory</h2>
       <hr/>
       {props.vinylList.map((vinyl) =>
         <Vinyl
