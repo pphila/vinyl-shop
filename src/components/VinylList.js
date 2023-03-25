@@ -12,7 +12,6 @@ export default function VinylList(props) {
           whenVinylClicked = {props.onVinylSelection}
           band = {vinyl.band}
           album = {vinyl.album}
-          description = {vinyl.description}
           quantity = {vinyl.quantity}
           id = {vinyl.id}
           key = {vinyl.id} />

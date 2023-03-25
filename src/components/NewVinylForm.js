@@ -10,7 +10,7 @@ export default function NewVinylForm(props) {
     props.onNewVinylCreation({
       band: e.target.band.value,
       album: e.target.album.value,
-      description: e.target.album.value,
+      description: e.target.description.value,
       quantity: e.target.quantity.value,
       id: v4()
     });

@@ -15,7 +15,7 @@ export default function ReusubaleVinylForm(props) {
           placeholder="Album Name" />
         <textarea 
           name="description"
-          placeholder="Desctription" />
+          placeholder="Description" />
         <input
           type="number"
           name="quantity"

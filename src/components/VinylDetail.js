@@ -8,7 +8,7 @@ export default function VinylDetail(props){
       <h2>Vinyl Details</h2>
       <h3>Band/Artist: {vinyl.band}</h3>
       <h3>Album: {vinyl.album}</h3>
-      <h4>Desctription: {vinyl.description}</h4>
+      <h4>Description: {vinyl.description}</h4>
       <h4>Quantity: <strong>{vinyl.quantity}</strong></h4>
     </>
   );
