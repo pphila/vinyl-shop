@@ -10,6 +10,7 @@ export default function VinylDetail(props){
       <h3>Album: {vinyl.album}</h3>
       <h4>Description: {vinyl.description}</h4>
       <h4>Quantity: <strong>{vinyl.quantity}</strong></h4>
+      <button onClick={props.onClickingEdit}>Edit Vinyl</button>
     </>
   );
 }

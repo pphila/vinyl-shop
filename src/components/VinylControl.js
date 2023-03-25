@@ -2,6 +2,7 @@ import React from "react";
 import VinylList from "./VinylList";
 import NewVinylForm from "./NewVinylForm";
 import VinylDetail from "./VinylDetail";
+import EditVinylForm from "./EditVinyl";
 
 class VinylControl extends React.Component {
   constructor(props){
@@ -9,7 +10,8 @@ class VinylControl extends React.Component {
     this.state = {
       mainVinylList: [],
       formVisibleOnPage: false,
-      selectedVinyl: null
+      selectedVinyl: null,
+      editing: false
     }
   }
 
@@ -17,13 +19,18 @@ class VinylControl extends React.Component {
     if (this.state.selectedVinyl != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedVinyl: null
+        selectedVinyl: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
         formVisibleOnPage: !prevState.formVisibleOnPage
       }));
     }
+  }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
   }
 
   handleAddingNewVinylToList = (newVinyl) => {
@@ -39,29 +46,43 @@ class VinylControl extends React.Component {
     this.setState ({selectedVinyl: selectedVinyl});
   }
 
+  handleEditingVinylInList = (vinylToEdit) => {
+    const editedMainVinylList = this.state.mainVinylList
+    .filter(vinyl => vinyl.id !== this.state.selectedVinyl.id)
+    .concat(vinylToEdit);
+    this.setState({
+      mainVinylList: editedMainVinylList,
+      editing: false,
+      selectedVinyl: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    let button = null;
 
-    if (this.state.selectedVinyl != null){
-      currentlyVisibleState = <VinylDetail
-                                vinyl = {this.state.selectedVinyl} />
+    if (this.state.editing){
+      currentlyVisibleState = <EditVinylForm
+                                vinyl={this.state.selectedVinyl}
+                                onEditTicket={this.handleEditingVinylInList} />
       buttonText= "Return To List";
-      button = <button onClick={this.handleClick}>{buttonText}</button>
+    } else if (this.state.selectedVinyl != null){
+      currentlyVisibleState = <VinylDetail
+                                vinyl = {this.state.selectedVinyl} 
+                                onClickingEdit = {this.handleEditClick} />
+      buttonText= "Return To List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewVinylForm onNewVinylCreation={this.handleAddingNewVinylToList} />
       buttonText = "Return To List"
     } else {
       currentlyVisibleState = <VinylList vinylList={this.state.mainVinylList} onVinylSelection={this.handleChangeSelectedVinyl} />
       buttonText="Add Vinyl";
-      button = <button onClick={this.handleClick}>{buttonText}</button>
     }
 
     return(
     <>
       {currentlyVisibleState}
-      {button}
+      <button onClick={this.handleClick}>{buttonText}</button>
     </>
   )
   }
