@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function VinylDetail(props){
-  const { vinyl } = props;
+  const { vinyl, onClickingDelete } = props;
   return(
     <>
       <h2>Vinyl Details</h2>
@@ -11,10 +11,12 @@ export default function VinylDetail(props){
       <h4>Description: {vinyl.description}</h4>
       <h4>Quantity: <strong>{vinyl.quantity}</strong></h4>
       <button onClick={props.onClickingEdit}>Edit Vinyl</button>
+      <button onClick={()=> onClickingDelete(vinyl.id) }>Remove Crate</button>
     </>
   );
 }
 
 VinylDetail.propTypes = {
   vinyl: PropTypes.object,
+  onClickingDelete: PropTypes.func
 }
