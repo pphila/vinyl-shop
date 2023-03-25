@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export default function Vinyl(props) {
   let inventoryWarn = null;
   if (props.quantity < 1) {
-    inventoryWarn = <p>OUT OF STOCK!</p>
+    inventoryWarn = <p className="font-bold text-red-800">OUT OF STOCK!</p>
   } else if (props.quantity <= 10 ) {
-    inventoryWarn = <p>Inventory Low!</p>
+    inventoryWarn = <p className="font-bold text-yellow-800">Inventory Low!</p>
   }
   
   return (
@@ -15,10 +15,10 @@ export default function Vinyl(props) {
         <h3>{props.band}</h3>
         <h4><em>{props.album}</em></h4>
         <h4>{props.description}</h4>
-        <h4>{props.quantity}</h4> {/*quantity amount will determine low stock or out of stock warning using conditionals?*/}
+        <h4 class="text-green-700">{props.quantity}</h4> {/*quantity amount will determine low stock or out of stock warning using conditionals?*/}
         {inventoryWarn}
       </div>
-      <button onClick={()=> props.whenSellClicked(props.id)}>Sell</button>
+      <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-1 border border-gray-400 rounded shadow mr-5" onClick={()=> props.whenSellClicked(props.id)}>Sell</button>
     </>
   );
 }

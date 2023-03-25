@@ -6,8 +6,11 @@ import VinylControl from "./VinylControl";
 function App() {
   return (
     <>
-      <Header />
-      <VinylControl />
+      <div class="md:container md:mx-auto pt-10">
+        <Header />
+        <VinylControl />
+      </div>
+      
     </>
   );
 }

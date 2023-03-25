@@ -105,7 +105,7 @@ class VinylControl extends React.Component {
     return(
     <>
       {currentlyVisibleState}
-      <button onClick={this.handleClick}>{buttonText}</button>
+      <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-2 border border-gray-400 rounded shadow" onClick={this.handleClick}>{buttonText}</button>
     </>
   )
   }
