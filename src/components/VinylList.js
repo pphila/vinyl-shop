@@ -3,6 +3,16 @@ import Vinyl from "./Vinyl";
 import PropTypes from "prop-types";
 
 export default function VinylList(props) {
+  const availableList = props.vinylList;
+  let emptyList = null;
+  if (availableList.length === 0) {
+    emptyList = 
+      <div>
+        <p>There are no vinyls currently available in the inventory</p>
+        <p>Click "Add Vinyl" to start</p>
+      </div>
+  }
+  
   return (
     <>
       <h2>Vinyl Inventory</h2>
@@ -16,6 +26,7 @@ export default function VinylList(props) {
           id = {vinyl.id}
           key = {vinyl.id} />
       )}
+      {emptyList}
     </>
   );
 }
