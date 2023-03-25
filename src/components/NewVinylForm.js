@@ -11,7 +11,7 @@ export default function NewVinylForm(props) {
       band: e.target.band.value,
       album: e.target.album.value,
       description: e.target.description.value,
-      quantity: e.target.quantity.value,
+      quantity: parseInt(e.target.quantity.value),
       id: v4()
     });
   }

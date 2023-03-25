@@ -19,6 +19,7 @@ export default function VinylList(props) {
       <hr/>
       {props.vinylList.map((vinyl) =>
         <Vinyl
+          whenSellClicked = {props.onSellVinylClicked}
           whenVinylClicked = {props.onVinylSelection}
           band = {vinyl.band}
           album = {vinyl.album}
@@ -33,5 +34,6 @@ export default function VinylList(props) {
 
 VinylList.propTypes = {
   vinylList: PropTypes.array,
-  onVinylSelection: PropTypes.func
+  onVinylSelection: PropTypes.func,
+  onSellVinylClicked: PropTypes.func
 };

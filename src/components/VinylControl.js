@@ -65,6 +65,17 @@ class VinylControl extends React.Component {
     })
   }
 
+  handleVinylSale = (id) => {
+    const selectedVinyl = this.state.mainVinylList.filter(vinyl => vinyl.id === id)[0];
+    if (selectedVinyl.quantity >= 1) {
+      const soldVinyl = { ...selectedVinyl, quantity: selectedVinyl.quantity -1};
+      const newMainVinylList = this.state.mainVinylList.filter(vinyl => vinyl.id !== id).concat(soldVinyl);
+      this.setState({
+        mainVinylList: newMainVinylList
+      });
+    }
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -84,7 +95,10 @@ class VinylControl extends React.Component {
       currentlyVisibleState = <NewVinylForm onNewVinylCreation={this.handleAddingNewVinylToList} />
       buttonText = "Return To List"
     } else {
-      currentlyVisibleState = <VinylList vinylList={this.state.mainVinylList} onVinylSelection={this.handleChangeSelectedVinyl} />
+      currentlyVisibleState = <VinylList 
+                                vinylList={this.state.mainVinylList} 
+                                onVinylSelection={this.handleChangeSelectedVinyl} 
+                                onSellVinylClicked={this.handleVinylSale} />
       buttonText="Add Vinyl";
     }
 
