@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function ReusubaleVinylForm(props) {
   return (
     <>
-      <h2 className="text-4xl py-2 text-center">New Vinyl</h2>
+      <h2 className="text-4xl py-2 text-center text-gray-200">New Vinyl</h2>
       <div class="flex justify-center">
         <form onSubmit={props.formSubmissionHandler}>
           <div class="m-2 ">

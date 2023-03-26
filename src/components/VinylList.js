@@ -7,15 +7,19 @@ export default function VinylList(props) {
   let emptyList = null;
   if (availableList.length === 0) {
     emptyList = 
-      <div class="bg-black bg-opacity-25 w-1.25 text-center py-2 mb-5 border-l border-b-2 border-black-300 rounded">
-        <p class="text-white-900">There are no vinyls currently available in the inventory</p>
-        <p class="text-white-900">Click "Add Vinyl" to start</p>
+      <div class="w-2/5 ml-auto mr-auto">
+        <div class="bg-teal-800 bg-opacity-25 w-1.25 text-center py-2 mb-5 border-l border-r border-b-2 border-black-300 rounded">
+          <div>
+            <p class="text-white font-semibold">There are no vinyls currently available in the inventory</p>
+            <p class="text-white font-semibold">Click "Add Vinyl" to start</p>
+          </div>
+        </div>
       </div>
   }
   
   return (
     <>
-      <h2 class="text-4xl py-2 text-center">Vinyl Inventory</h2>
+      <h2 class="text-4xl py-2 text-center text-gray-200">Vinyl Inventory</h2>
       
       {props.vinylList.map((vinyl) =>
         <Vinyl
