@@ -35,6 +35,7 @@ _Once a vinyl has been added, it is displayed via a card_
 
 ## Known Bugs
 * _First card will switch back and forth with second card after clicking sell button_
+* _Cards will not align in columns_
 * _Report any bugs to efl2ice89@gmail.com_
 
 ## License
