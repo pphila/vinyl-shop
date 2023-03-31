@@ -6,7 +6,7 @@ import VinylControl from "./VinylControl";
 function App() {
   return (
     <>
-      <div class="md:container md:mx-auto pt-10">
+      <div className="md:container md:mx-auto pt-10">
         <Header />
         <VinylControl />
       </div>
